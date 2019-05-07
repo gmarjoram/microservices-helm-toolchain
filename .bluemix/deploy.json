@@ -26,7 +26,7 @@
             "description": "The IBM Cloud region for image registry",
             "type": "string",
             "helper": {
-                "type": "kube-region",
+                "type": "k8-region",
                 "requires": ["api-key"]
             }
         },
@@ -35,7 +35,7 @@
             "type": "string",
             "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$",
             "helper": {
-                "type": "kube-registry-namespace",
+                "type": "k8-registry-namespace",
                 "requires": ["registry-region"]
             }
         },
@@ -43,7 +43,7 @@
             "description": "The IBM Cloud region",
             "type": "string",
             "helper": {
-                "type": "cloud-foundry-region",
+                "type": "cf-region",
                 "requires" : ["api-key"]
             }
         },
@@ -51,7 +51,7 @@
             "description": "The IBM Cloud org",
             "type": "string",
             "helper": {
-                "type": "cloud-foundry-org",
+                "type": "cf-org",
                 "requires": ["staging-region"]
             }
         },
@@ -59,7 +59,7 @@
             "description": "The IBM Cloud space",
             "type": "string",
             "helper": {
-                "type": "cloud-foundry-space",
+                "type": "cf-space",
                 "requires": ["staging-organization"]
             }
         },
@@ -68,7 +68,7 @@
             "type": "string",
             "pattern": "\\S",
             "helper": {
-                "type": "kube-cluster-name",
+                "type": "k8-cluster-name",
                 "requires": ["registry-region"]
             }
         },
@@ -77,7 +77,7 @@
             "type": "string",
             "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
             "helper": {
-                "type": "kube-cluster-namespace",
+                "type": "k8-cluster-namespace",
                 "requires": ["staging-cluster-name"],
                 "validate": false
             }
@@ -86,7 +86,7 @@
             "description": "The IBM Cloud region for prod deployment",
             "type": "string",
             "helper": {
-                "type": "cloud-foundry-region",
+                "type": "cf-region",
                 "requires": ["api-key"]
             }
         },
@@ -94,7 +94,7 @@
             "description": "The IBM Cloud org",
             "type": "string",
             "helper": {
-                "type": "cloud-foundry-org",
+                "type": "cf-org",
                 "requires": ["prod-region"]
             }
         },
@@ -102,7 +102,7 @@
             "description": "The IBM Cloud space",
             "type": "string",
             "helper": {
-                "type": "cloud-foundry-space",
+                "type": "cf-space",
                 "requires": ["prod-organization"]
             }
         },
@@ -111,7 +111,7 @@
             "type": "string",
             "pattern": "\\S",
             "helper": {
-                "type": "kube-cluster-name",
+                "type": "k8-cluster-name",
                 "requires": ["registry-region"]
             }
         },
@@ -120,7 +120,7 @@
             "type": "string",
             "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
             "helper": {
-                "type": "kube-cluster-namespace",
+                "type": "k8-namespace",
                 "requires": ["prod-cluster-name"],
                 "validate": false
             }
