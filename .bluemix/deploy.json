@@ -18,14 +18,14 @@
             "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
             "type": "string",
             "pattern": "\\S",
-            "helper": {
+            "validator": {
                 "type": "api-key"
             }
         },
         "registry-region": {
             "description": "The IBM Cloud region for image registry",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "k8-region",
                 "requires": ["api-key"]
             }
@@ -34,7 +34,7 @@
             "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html .",
             "type": "string",
             "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$",
-            "helper": {
+            "validator": {
                 "type": "k8-registry-namespace",
                 "requires": ["registry-region"]
             }
@@ -42,15 +42,15 @@
         "staging-region": {
             "description": "The IBM Cloud region",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "cf-region",
-                "requires" : ["api-key"]
+                "requires": ["api-key"]
             }
         },
         "staging-organization": {
             "description": "The IBM Cloud org",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "cf-org",
                 "requires": ["staging-region"]
             }
@@ -58,7 +58,7 @@
         "staging-space": {
             "description": "The IBM Cloud space",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "cf-space",
                 "requires": ["staging-organization"]
             }
@@ -67,7 +67,7 @@
             "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters .",
             "type": "string",
             "pattern": "\\S",
-            "helper": {
+            "validator": {
                 "type": "k8-cluster-name",
                 "requires": ["registry-region"]
             }
@@ -75,17 +75,12 @@
         "staging-cluster-namespace": {
             "description": "Staging namespace",
             "type": "string",
-            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
-            "helper": {
-                "type": "k8-cluster-namespace",
-                "requires": ["staging-cluster-name"],
-                "validate": false
-            }
+            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },
         "prod-region": {
             "description": "The IBM Cloud region for prod deployment",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "cf-region",
                 "requires": ["api-key"]
             }
@@ -93,7 +88,7 @@
         "prod-organization": {
             "description": "The IBM Cloud org",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "cf-org",
                 "requires": ["prod-region"]
             }
@@ -101,7 +96,7 @@
         "prod-space": {
             "description": "The IBM Cloud space",
             "type": "string",
-            "helper": {
+            "validator": {
                 "type": "cf-space",
                 "requires": ["prod-organization"]
             }
@@ -110,7 +105,7 @@
             "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters .",
             "type": "string",
             "pattern": "\\S",
-            "helper": {
+            "validator": {
                 "type": "k8-cluster-name",
                 "requires": ["registry-region"]
             }
@@ -118,12 +113,7 @@
         "prod-cluster-namespace": {
             "description": "Prod namespace",
             "type": "string",
-            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
-            "helper": {
-                "type": "k8-namespace",
-                "requires": ["prod-cluster-name"],
-                "validate": false
-            }
+            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },
         "umbrella-app-name": {
             "description": {
@@ -152,7 +142,7 @@
     ],
     "form": [{
             "type": "validator",
-            "url": "/devops/setup/bm-helper/helper-v3.html"
+            "url": "/devops/setup/bm-helper/validator-v1.html"
         },
         {
             "type": "text",
