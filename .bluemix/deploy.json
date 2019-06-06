@@ -52,7 +52,7 @@
             "type": "string",
             "validator": {
                 "v-type": "cf-region",
-                "params": ["api-key"]
+                "params": ["api-key-gary"]
             }
         },
         "staging-organization": {
