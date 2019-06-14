@@ -211,7 +211,14 @@
         "prod-space",
         "prod-cluster-name",
         "prod-cluster-namespace",
-        "umbrella-app-name"
+        "umbrella-app-name",
+        "other-prod-cluster-namespace",
+        "other-prod-cluster-name",
+        "other-prod-resource-group",
+        "other-prod-region",
+        "other-registry-namespace",
+        "other-registry-region",
+        "other-api-key"
     ],
     "form": [{
             "type": "validator",
