@@ -9,6 +9,7 @@ template:
   header: '![](toolchain.svg?localize)'
   icon: icon.svg
   required:
+    - vault
     - ui-build
     - catalog-api-build
     - orders-api-build
@@ -192,6 +193,13 @@ services:
       dashboard_url: https://cloud.ibm.com/containers-kubernetes/clusters
       description: Manage clusters
       additional-properties:  
+  vault:
+    service_id: keyprotect
+    parameters:
+      name: keyprotect-vault
+      vault-region: "ibm:ys1:us-south"
+      vault-resource-group: Default
+      vault-name: "crn:v1:staging:public:kms:us-south:a/5239951a9770d45728044117823435c0:8fef09a5-582e-4d25-ab1c-e72620584174::"    
 form:
   pipeline:
     parameters:
