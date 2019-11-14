@@ -199,7 +199,7 @@ services:
       name: keyprotect-vault
       vault-region: "ibm:ys1:us-south"
       vault-resource-group: Default
-      vault-name: "crn:v1:staging:public:kms:us-south:a/5239951a9770d45728044117823435c0:8fef09a5-582e-4d25-ab1c-e72620584174::"    
+      vault-name: "Gary Key Protect"    
 form:
   pipeline:
     parameters:
